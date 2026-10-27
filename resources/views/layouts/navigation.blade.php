@@ -10,13 +10,32 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                
+                    <!-- Navigation Links -->
+
+                    <x-nav-link :href="route('contacts.index')" :active="request()->routeIs('contacts.index')">
+                        {{ __('Minha Agenda') }}
                     </x-nav-link>
-                </div>
+                    
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+
+                        <x-nav-link :href="route('dashboard')"
+                                    :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+
+                        @if(auth()->user()->role === 'admin')
+                            <x-nav-link :href="route('admin.users')"
+                                        :active="request()->routeIs('admin.users')">
+                                {{ __('Gestão de Usuários') }}
+                            </x-nav-link>
+                        @endif
+
+                    </div>
+
             </div>
+
+            
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -62,6 +81,8 @@
                 </button>
             </div>
         </div>
+
+            
     </div>
 
     <!-- Responsive Navigation Menu -->

@@ -8,12 +8,10 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
-    {
-         Schema::create('contacts', function (Blueprint $table) {
+  public function up(): void
+{
+     Schema::create('contacts', function (Blueprint $table) {
         $table->id();
         // Relaciona o contato com o usuário (dono da agenda)
         $table->foreignId('user_id')->constrained()->onDelete('cascade');
@@ -26,14 +24,12 @@ return new class extends Migration
         $table->string('photo')->nullable(); // Guardaremos o caminho da imagem
         $table->timestamps();
     });
-    }
+}
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('contacts');
     }
