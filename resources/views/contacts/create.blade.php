@@ -9,8 +9,8 @@
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-2xl rounded-3xl p-8 border border-gray-100">
 
-                <form action="{{ route('contacts.store') }}" method="POST">
-                    @csrf
+                 <form action="{{ route('contacts.store') }}" method="POST" enctype="multipart/form-data">
+                     @csrf
 
                     <div class="space-y-6">
                         <!-- Nome -->
@@ -21,6 +21,12 @@
                                    placeholder="Nome do contato..." required>
                             @error('name') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                         </div>
+
+                        <div>
+    <label class="block text-sm font-bold text-gray-700 mb-2">Foto do Contato (Opcional)</label>
+    <input type="file" name="photo" accept="image/*"
+           class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 transition-all">
+</div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <!-- Telefone -->

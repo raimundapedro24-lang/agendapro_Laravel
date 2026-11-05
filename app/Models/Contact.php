@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
-    protected $fillable = ['name', 'email', 'phone', 'type', 'notes', 'user_id']; 
+    protected $fillable = ['name', 'email', 'phone', 'type', 'notes', 'user_id', 'photo',]; 
     // Adicione 'user_id' à lista de atributos preenchíveis
 
     public function user() //Associação com o modelo User

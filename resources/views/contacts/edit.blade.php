@@ -9,9 +9,9 @@
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-2xl rounded-3xl p-8 border border-gray-100">
 
-                <form action="{{ route('contacts.update', $contact) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PATCH')
+               <form action="{{ route('contacts.update', $contact) }}" method="POST" enctype="multipart/form-data">
+                 @csrf
+                 @method('PUT')
 
                     <div class="space-y-6">
                         <!-- Nome -->

@@ -19,7 +19,43 @@
                     <span class="mr-2">✅</span> {{ session('success') }}
                 </div>
             @endif
+                       <!-- Barra de Busca Moderna -->
+<div class="mb-8">
+    <form action="{{ route('contacts.index') }}" method="GET" class="relative group">
+        <div class="flex items-center">
+            <input type="text" name="search" value="{{ $search ?? '' }}"
+                   placeholder="Buscar por nome ou e-mail..."
+                   class="w-full pl-12 pr-4 py-4 rounded-2xl border-none shadow-sm focus:ring-2 focus:ring-indigo-500 transition-all duration-300 bg-white"
+            >
+            <!-- Ícone de Lupa -->
+            <div class="absolute left-4 text-gray-400 group-focus-within:text-indigo-500 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
 
+            <!-- Botão de Limpar (só aparece se houver busca) -->
+            @if($search)
+                <a href="{{ route('contacts.index') }}" class="absolute right-24 text-gray-400 hover:text-red-500 transition-colors">
+                    Limpar
+                </a>
+            @endif
+
+            <button type="submit" class="absolute right-3 bg-indigo-600 text-white px-6 py-2 rounded-xl font-bold hover:bg-indigo-700 transition-all transform active:scale-95 shadow-md">
+                Buscar
+            </button>
+        </div>
+    </form>
+</div>
+<div class="flex gap-2">
+    <a href="{{ route('contacts.pdf') }}"
+       class="inline-flex items-center px-6 py-3 bg-red-600 border border-transparent rounded-full font-bold text-white uppercase tracking-widest hover:bg-red-700 transition-all duration-300 shadow-lg">
+        📄 PDF
+    </a>
+
+    <!-- O botão '+ Novo Contato' continua aqui -->
+    <a href="{{ route('contacts.create') }}" ...> ... </a>
+</div>
             <!-- Grid de Contatos -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @forelse($contacts as $contact)
@@ -68,12 +104,16 @@
                         </div>
                     </div>
                 @empty
-                    <div class="col-span-full bg-white rounded-3xl p-12 text-center shadow-sm border-2 border-dashed border-gray-200">
-                        <div class="text-6xl mb-4 text-gray-300">📭</div>
-                        <h3 class="text-xl font-bold text-gray-700">Sua agenda está vazia</h3>
-                        <p class="text-gray-500 mt-2">Comece adicionando seu primeiro contato clicando no botão acima.</p>
-                    </div>
-                @endforelse
+    <div class="col-span-full bg-white rounded-3xl p-12 text-center shadow-sm">
+        <div class="text-6xl mb-4">🔍</div>
+        <h3 class="text-xl font-bold text-gray-700">Nenhum contato encontrado</h3>
+        <p class="text-gray-500 mt-2">Não encontramos resultados para "{{ $search }}".</p>
+        <a href="{{ route('contacts.index') }}" class="mt-4 inline-block text-indigo-600 font-bold hover:underline">
+            Ver todos os contatos
+        </a>
+    </div>
+@endforelse
+
             </div>
         </div>
     </div>
