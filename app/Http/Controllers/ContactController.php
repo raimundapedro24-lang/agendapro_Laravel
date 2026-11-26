@@ -57,9 +57,8 @@ class ContactController extends Controller
     // Criar contato vinculado ao usuário logado
     auth()->user()->contacts()->create($data);
 
-    return redirect()
-        ->route('contacts.index')
-        ->with('success', 'Contato criado com sucesso!');
+    return redirect()->route('contacts.index')->with('success', 'Contato cadastrado com sucesso!');
+
 }
 
     public function edit(Contact $contact)
@@ -107,9 +106,7 @@ class ContactController extends Controller
     // Atualizar os dados do contato
     $contact->update($data);
 
-    return redirect()
-        ->route('contacts.index')
-        ->with('success', 'Contato atualizado com sucesso!');
+    return redirect()->route('contacts.index')->with('update', 'Contato atualizado com sucesso!');
 }
 
     public function destroy(Contact $contact)
@@ -127,9 +124,7 @@ class ContactController extends Controller
         // Remove o contato
         $contact->delete();
 
-        return redirect()
-            ->route('contacts.index')
-            ->with('success', 'Contato removido com sucesso!');
+       return redirect()->route('contacts.index')->with('delete', 'Contato removido com sucesso!');
     }
 
     public function exportPdf(){

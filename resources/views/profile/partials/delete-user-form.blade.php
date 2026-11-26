@@ -46,9 +46,10 @@
                     {{ __('Cancel') }}
                 </x-secondary-button>
 
-                <x-danger-button class="ml-3">
-                    {{ __('Delete Account') }}
-                </x-danger-button>
+                <button type="submit"
+    class="ms-3 inline-flex items-center px-6 py-3 bg-red-600 border border-transparent rounded-2xl font-bold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl">
+    {{ __('Excluir Minha Conta') }}
+</button>
             </div>
         </form>
     </x-modal>

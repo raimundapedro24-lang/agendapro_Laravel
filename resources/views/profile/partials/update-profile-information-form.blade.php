@@ -48,7 +48,10 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+           <button type="submit"
+    class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 active:scale-95 uppercase text-xs tracking-widest">
+    {{ __('Salvar Alterações') }}
+</button>
 
             @if (session('status') === 'profile-updated')
                 <p

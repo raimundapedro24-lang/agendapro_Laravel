@@ -18,6 +18,6 @@ class AdminController extends Controller
         $user->active = !$user->active;
         $user->save();
 
-        return back()->with('success', 'Status do usuário atualizado com sucesso!');
+       return back()->with('update', 'Status do usuário atualizado!');
     }
 }

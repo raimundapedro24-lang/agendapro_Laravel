@@ -1,0 +1,19 @@
+{
+    "Profile Information": "Informações do Perfil",
+    "Update your account's profile information and email address.": "Atualize as informações de perfil e o endereço de e-mail da sua conta.",
+    "Name": "Nome",
+    "Email": "E-mail",
+    "Saved.": "Salvo.",
+    "Click here to re-send the verification email.": "Clique aqui para reagendar o e-mail de verificação.",
+    "A new verification link has been sent to your email address.": "Um novo link de verificação foi enviado para o seu endereço de e-mail.",
+    "Update Password": "Atualizar Senha",
+    "Ensure your account is using a long, random password to stay secure.": "Certifique-se de que sua conta esteja usando uma senha longa e aleatória para se manter segura.",
+    "Current Password": "Senha Atual",
+    "New Password": "Nova Senha",
+    "Confirm Password": "Confirmar Senha",
+    "Delete Account": "Excluir Conta",
+    "Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.": "Uma vez que sua conta seja excluída, todos os seus recursos e dados serão excluídos permanentemente. Antes de excluir sua conta, baixe quaisquer dados ou informações que deseje reter.",
+    "Are you sure you want to delete your account?": "Tem certeza de que deseja excluir sua conta?",
+    "Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.": "Após a exclusão da conta, todos os dados serão removidos. Por favor, digite sua senha para confirmar a exclusão.",
+    "Cancel": "Cancelar"
+}
