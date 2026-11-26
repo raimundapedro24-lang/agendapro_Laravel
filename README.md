@@ -1,66 +1,210 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# AgendaPro
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema web para gerenciar uma agenda pessoal de contatos, com autenticação, aprovação de usuários pelo administrador e exportação da agenda em PDF.
 
-## About Laravel
+## Identificação
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+| Informação | Dados |
+| --- | --- |
+| Aluno | **Ravir Silva de Menezes** |
+| Número | **38** |
+| Professor | **Francisco Leandro** |
+| Projeto | **AgendaPro** |
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Sobre o projeto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+O AgendaPro permite que cada usuário mantenha sua própria lista de contatos. O sistema possui uma área administrativa para controlar a ativação das contas e um painel com indicadores da agenda. Administradores também visualizam estatísticas de usuários cadastrados, ativos e pendentes.
 
-## Learning Laravel
+O projeto foi desenvolvido com Laravel e utiliza a estrutura MVC, com modelos para os dados, controladores para os fluxos da aplicação e views Blade para a interface.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Funcionalidades implementadas
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Autenticação:** cadastro, login e encerramento de sessão.
+- **Aprovação de contas:** novos usuários aguardam ativação pelo administrador para acessar o painel e a agenda.
+- **Gestão de contatos:** cadastro, listagem, edição e exclusão.
+- **Dados do contato:** nome, telefone, e-mail opcional, categoria, observações e foto opcional.
+- **Busca:** pesquisa de contatos por nome ou e-mail.
+- **Agenda individual:** cada usuário gerencia seus próprios contatos.
+- **Dashboard:** total de contatos e contagens das categorias Pessoal e Trabalho.
+- **Administração:** listagem de outros usuários e ativação ou desativação das contas.
+- **Exportação em PDF:** download da agenda do usuário com nome, telefone, e-mail e categoria dos contatos.
+- **Perfil:** atualização de nome e e-mail, alteração de senha e exclusão da própria conta.
+- **Recuperação de senha:** fluxo de solicitação de link e redefinição, dependente da configuração de e-mail.
+- **Interface responsiva:** layouts adaptados para diferentes tamanhos de tela.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+> A exportação em PDF inclui todos os contatos da agenda do usuário. O filtro da busca não é aplicado ao arquivo exportado.
 
-## Laravel Sponsors
+## Tecnologias utilizadas
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+| Tecnologia | Utilização |
+| --- | --- |
+| PHP | Linguagem utilizada no backend |
+| Laravel 13 | Framework da aplicação |
+| Eloquent ORM | Consultas, relacionamentos e persistência dos dados |
+| MySQL | Banco de dados relacional |
+| Blade e Laravel Breeze | Templates, formulários e base de autenticação |
+| Tailwind CSS 3 | Estilização e responsividade |
+| Alpine.js 3 | Interações de componentes da interface |
+| Vite 4 | Servidor de desenvolvimento e compilação de CSS e JavaScript |
+| DomPDF | Geração dos arquivos PDF |
+| Composer e npm | Gerenciamento das dependências |
+| PHPUnit | Testes automatizados presentes no projeto |
 
-### Premium Partners
+## Requisitos para executar
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- **PHP 8.4**, ou versão PHP 8.x superior compatível com as dependências travadas.
+- Composer.
+- Node.js e npm compatíveis com as dependências do frontend.
+- MySQL em execução.
+- Extensões PHP exigidas pelo Composer, incluindo o driver PDO para MySQL.
 
-## Contributing
+Embora o `composer.json` declare PHP `^8.3`, o conjunto atual de dependências do `composer.lock` exige **PHP >= 8.4**. Confira a versão utilizada pelo terminal com `php -v`; uma instalação do XAMPP com PHP 8.0 não atende a esse requisito.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Como executar localmente
 
-## Code of Conduct
+Execute os comandos na pasta raiz do projeto. As instruções abaixo são destinadas a uma nova instalação em ambiente de desenvolvimento.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 1. Clonar o repositório
 
-## Security Vulnerabilities
+```bash
+git clone https://github.com/raimundapedro24-lang/agendapro_Laravel.git
+cd agendapro_Laravel
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 2. Instalar as dependências
 
-## License
+```bash
+composer install
+composer check-platform-reqs
+npm ci
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 3. Configurar o ambiente
+
+Se o arquivo `.env` ainda não existir, copie o modelo. No Windows, usando PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+No Linux ou macOS, o comando equivalente é `cp .env.example .env`.
+
+Crie um banco MySQL chamado `agendapro` e ajuste o `.env` com os dados da sua instalação:
+
+```dotenv
+APP_NAME=AgendaPro
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://127.0.0.1:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=agendapro
+DB_USERNAME=seu_usuario
+DB_PASSWORD="sua_senha"
+```
+
+Substitua `seu_usuario` e `sua_senha` pelas credenciais locais do MySQL. O arquivo `.env` contém configurações particulares e está incluído no `.gitignore`.
+
+### 4. Gerar a chave e preparar o banco e as fotos
+
+Na nova instalação, execute:
+
+```bash
+php artisan key:generate
+php artisan migrate
+php artisan storage:link
+```
+
+As migrations criam as tabelas da aplicação. O link de armazenamento permite que as fotos dos contatos sejam exibidas na interface.
+
+### 5. Iniciar a aplicação
+
+Em um terminal, inicie o Vite:
+
+```bash
+npm run dev
+```
+
+Em outro terminal, na mesma pasta do projeto, inicie o servidor Laravel:
+
+```bash
+php artisan serve
+```
+
+Acesse **http://127.0.0.1:8000** no navegador.
+
+Para gerar os arquivos compilados do frontend, utilize `npm run build`.
+
+## Primeiro acesso e administrador inicial
+
+As contas cadastradas começam com o perfil `user` e o estado `active=false`. Por isso, o primeiro usuário precisa ser habilitado para administrar as demais contas.
+
+1. Abra a aplicação e cadastre uma conta com seu e-mail e uma senha de sua escolha.
+2. No terminal, na raiz do projeto, abra o Tinker:
+
+   ```bash
+   php artisan tinker
+   ```
+
+3. Execute as instruções abaixo, substituindo o endereço pelo e-mail usado no cadastro:
+
+   ```php
+   $usuario = \App\Models\User::where('email', 'seu-email@exemplo.com')->firstOrFail();
+   $usuario->role = 'admin';
+   $usuario->active = true;
+   $usuario->save();
+   ```
+
+4. Saia do Tinker com `exit` e faça login na aplicação.
+5. Acesse **Gestão de Usuários** para ativar as próximas contas cadastradas.
+
+Essa preparação é necessária somente para o administrador inicial de uma nova base local. O projeto também possui um `AdminSeeder`, mas a instalação descrita acima utiliza uma senha definida pelo próprio usuário.
+
+## Configuração de e-mail
+
+Para utilizar a recuperação de senha, configure as variáveis `MAIL_*` no `.env` com os dados de um serviço SMTP ou de uma ferramenta local de captura de e-mails. A disponibilidade desse recurso depende dessa configuração.
+
+## Estrutura principal
+
+```text
+app/
+  Http/Controllers/   Controladores de autenticação, contatos, perfil e administração
+  Http/Middleware/    Verificações de acesso e ativação de contas
+  Http/Requests/      Validações de formulários
+  Models/            Modelos User e Contact
+bootstrap/           Inicialização da aplicação
+config/              Configurações dos serviços
+database/
+  migrations/        Estrutura das tabelas
+  factories/         Geração de dados para testes
+  seeders/           Carga inicial de dados
+lang/                Traduções
+public/              Entrada HTTP e arquivos públicos
+resources/
+  views/             Telas e componentes Blade
+  css/               Estilos
+  js/                JavaScript
+routes/              Definições das rotas
+tests/               Testes automatizados
+```
+
+## Testes
+
+O projeto contém testes de autenticação e perfil. Antes de executar a suíte, configure um **banco exclusivo para testes**: há cenários que utilizam `RefreshDatabase`, e a configuração de SQLite em memória está comentada no `phpunit.xml`.
+
+## Documentação técnica
+
+A documentação detalhada apresenta a arquitetura, os fluxos, o banco de dados, as telas, as configurações, as dependências e a análise do código próprio do projeto.
+
+[Consultar a documentação completa em PDF (198 páginas)](docs/AgendaPro_Documentacao_Completa.pdf)
+
+O relatório registra a análise da cópia local em 26/11/2026 e identifica os pontos que dependem de validação em execução. Valores sensíveis foram ocultados.
+
+## Repositório
+
+[https://github.com/raimundapedro24-lang/agendapro_Laravel](https://github.com/raimundapedro24-lang/agendapro_Laravel)
+
+**Autor:** Ravir Silva de Menezes — **Nº 38**  
+**Professor:** Francisco Leandro
